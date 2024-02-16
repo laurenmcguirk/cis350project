@@ -7,18 +7,41 @@ import teamClass
 import random
 
 class Matchup:
+    """
+    This class runs a match in a bracket
+    Instance variables:
+    matchName: str - name of the match
+    firstTeam: team - first team in match
+    secondTeam: team - second team in match
+    firstScore: int - first team's score
+    secondScore: int - second team's score
+    winner: str - winner of the match
+    loser: str - loser of the match
+    """
 
     firstTeam = ""
     secondTeam = ""
     firstScore = 0
     secondScore = 0
+    winner = ""
+    loser = ""
 
     def __init__(self, matchName, firstTeam, secondTeam):
+        """
+        Constructor
+        param matchName: str - name of the match
+            Raises: ValueError is value passed in is blank
+        """
+        if matchName == '':
+            raise ValueError('Name entered cannot be blank!')
         self.matchName = matchName
         self.firstTeam = firstTeam
         self.secondTeam = secondTeam
 
     def runMatch(self, firstTeam, secondTeam):
+        """
+        method to execute the match
+        """
         firstScore = self.randomTeamScore(firstTeam)
 
         secondScore = self.randomTeamScore(secondTeam)
@@ -40,6 +63,9 @@ class Matchup:
             self.setLoser(firstTeam)
     
     def randomTeamScore(self, team):
+        """
+        method to give each team a random score based on their seed
+        """
         score = 0
 
         if team.getSeed() == 1:
@@ -63,21 +89,45 @@ class Matchup:
     
     
     def getWinner(self):
+        """
+        getter for winner attribute
+        return: int - seed number
+        """
         return self.winner
 
     def setWinner(self, team):
+        """
+        setter for the winner attribute
+        param team: team - winning team
+        """
         self.winner = team
 
     def getLoser(self):
+        """
+        getter for loser attribute
+        return: team - loser of match
+        """
         return self.loser
     
     def setLoser(self, team):
+        """
+        setter for the loser attribute
+        param team: team - losing team
+        """
         self.loser = team
 
     def getMatchName(self):
+        """
+        getter for matchName attribute
+        return: str - match name
+        """
         return self.matchName
 
     def setMatchName(self, name):
+        """
+        setter for the matchName attribute
+        param name: str - match name
+        """
         self.matchName = name
 
 

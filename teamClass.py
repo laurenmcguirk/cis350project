@@ -3,7 +3,7 @@ CIS 350 Project - Team Class
 Author: Lauren McGuirk
 Date: February 2024
 """
-class team:
+class Team:
     """
     This class implements a team in a bracket
     Instance variables:
@@ -15,15 +15,17 @@ class team:
     wins = 0
     losses = 0
 
-    def __init__(self, name):
+    def __init__(self, name, seed):
         """
         Constructor
         param name: str - name of the team
             Raises: ValueError is value passed in is blank
+        param seed: int - seed of the team
         """
         if name == '':
             raise ValueError('Names entered cannot be blank!')
         self.teamName = name
+        self.seed = seed
 
     def setTeamName(self, name):
         """
