@@ -35,27 +35,34 @@ class Bracket:
         team6 = Team("Team 6", 4)
         team7 = Team("Team 7", 7)
         team8 = Team("Team 8", 2)
-        match1 = Matchup(team1, team2)
-        match2 = Matchup(team3, team4)
-        match3 = Matchup(team5, team6)
-        match4 = Matchup(team7, team8)
-        match5 = Matchup(match1.getWinner(), match2.getWinner())
-        match6 = Matchup(match3.getWinner(), match4.getWinner())
-        match7 = Matchup(match5.getWinner(), match6.getWinner())
+        match1 = Matchup("Match 1")
+        match1.runMatch(team1, team2)
+        match2 = Matchup("Match 2")
+        match2.runMatch(team3, team4)
+        match3 = Matchup("Match 3")
+        match3.runMatch(team5, team6)
+        match4 = Matchup("Match 4")
+        match4.runMatch(team7, team8)
+        match5 = Matchup("Match 5")
+        match5.runMatch(match1.getWinner(), match2.getWinner())
+        match6 = Matchup("Match 6")
+        match6.runMatch(match3.getWinner(), match4.getWinner())
+        match7 = Matchup("Match 7")
+        match7.runMatch(match5.getWinner(), match6.getWinner())
 
         print(match7.getWinner().getTeamName() + " won the bracket!")
 
-    def getMatchName(self):
+    def getBracketName(self):
         """
-        getter for matchName attribute
-        return: str - match name
+        getter for bracketName attribute
+        return: str - bracket name
         """
         return self.bracketName
 
-    def setMatchName(self, name):
+    def setBracketName(self, name):
         """
-        setter for the matchName attribute
-        param name: str - match name
+        setter for the bracketName attribute
+        param name: str - bracket name
         """
         self.bracketName = name
 

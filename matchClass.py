@@ -26,7 +26,7 @@ class Matchup:
     winner = ""
     loser = ""
 
-    def __init__(self, matchName, firstTeam, secondTeam):
+    def __init__(self, matchName):
         """
         Constructor
         param matchName: str - name of the match
@@ -35,8 +35,6 @@ class Matchup:
         if matchName == '':
             raise ValueError('Name entered cannot be blank!')
         self.matchName = matchName
-        self.firstTeam = firstTeam
-        self.secondTeam = secondTeam
 
     def runMatch(self, firstTeam, secondTeam):
         """
@@ -48,17 +46,13 @@ class Matchup:
 
         #adding to wins/losses of teams
         if firstScore > secondScore:
-            print(firstTeam.getTeamName() + " won the match!")
+            print(firstTeam.getTeamName() + " won " + self.getMatchName())
             print("The final score was " + str(firstScore) + " to " + str(secondScore))
-            self.firstTeam.addWins() 
-            self.secondTeam.addLosses()
             self.setWinner(firstTeam)
             self.setLoser(secondTeam)
         elif secondScore > firstScore:
-            print(secondTeam.getTeamName() + " won the match!")
+            print(secondTeam.getTeamName() + " won " + self.getMatchName())
             print("The final score was " + str(secondScore) + " to " + str(firstScore))
-            self.secondTeam.addWins()
-            self.firstTeam.addLosses()
             self.setWinner(secondTeam)
             self.setLoser(firstTeam)
     
