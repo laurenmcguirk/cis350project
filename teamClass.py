@@ -43,32 +43,6 @@ class Team:
         return: str - name of the team
         """
         return self.teamName
-
-    def addWins(self):
-        """
-        method to add one additional win to the team's win record
-        """
-        self.wins+=1
-
-    def getWins(self):
-        """
-        getter for wins attribute
-        return: int - number of team wins
-        """
-        return self.wins
-    
-    def addLosses(self):
-        """
-        method to add one additional loss to the team's loss record
-        """
-        self.losses+=1
-    
-    def getLosses(self):
-        """
-        getter for losses attribute
-        return: int - number of team losses
-        """
-        return self.losses
     
     def getSeed(self):
         """
@@ -77,9 +51,35 @@ class Team:
         """
         return self.seed
 
-    def getRecord(self):
-        """
-        getter for record attribute
-        return: str - number of team wins vs losses
-        """
-        print(self.teamName + ": " + str(self.wins) + " wins and " + str(self.losses) + " losses")
+    # def addWins(self):
+    #     """
+    #     method to add one additional win to the team's win record
+    #     """
+    #     self.wins+=1
+
+    # def getWins(self):
+    #     """
+    #     getter for wins attribute
+    #     return: int - number of team wins
+    #     """
+    #     return self.wins
+    
+    # def addLosses(self):
+    #     """
+    #     method to add one additional loss to the team's loss record
+    #     """
+    #     self.losses+=1
+    
+    # def getLosses(self):
+    #     """
+    #     getter for losses attribute
+    #     return: int - number of team losses
+    #     """
+    #     return self.losses
+
+    # def getRecord(self):
+    #     """
+    #     getter for record attribute
+    #     return: str - number of team wins vs losses
+    #     """
+    #     print(self.teamName + ": " + str(self.wins) + " wins and " + str(self.losses) + " losses")
