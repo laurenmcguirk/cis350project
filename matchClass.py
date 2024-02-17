@@ -19,12 +19,10 @@ class Matchup:
     loser: str - loser of the match
     """
 
-    firstTeam = ""
-    secondTeam = ""
+    
     firstScore = 0
     secondScore = 0
-    winner = ""
-    loser = ""
+    
 
     def __init__(self, matchName):
         """
@@ -67,7 +65,7 @@ class Matchup:
         elif team.getSeed() == 2:
             score = random.randrange(45,95)
         elif team.getSeed() == 3:
-            score = random.randrage(40,90)
+            score = random.randrange(40,90)
         elif team.getSeed() == 4:
             score = random.randrange(35,85)
         elif team.getSeed() == 5:
