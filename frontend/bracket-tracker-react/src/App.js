@@ -38,11 +38,7 @@ const App = () => {
         <div className = "match">
             <div className = "team">Team 1 
             <div className = "winOrLoss">W</div> 
-            
             </div>
-            
-            
-            
             <div className = "team">Team 2 
             <div className = "winOrLoss">L</div>
             </div>

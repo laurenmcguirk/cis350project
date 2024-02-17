@@ -21,7 +21,7 @@ class Bracket:
         """
         if bracketName == '':
             raise ValueError('Name entered cannot be blank!')
-        self.bracketName = bracketName
+        self.bracketName = bracketName 
 
     def runBracket(self):
         """
