@@ -6,6 +6,7 @@ class TestMatchup(unittest.TestCase):
         # Initialize teams for testing
         self.team1 = Team("Team A", 1)
         self.team2 = Team("Team B", 2)
+        self.matchup = Matchup("MatchName")
 
     def test_match_creation(self):
         # Test match creation with a valid name
