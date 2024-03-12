@@ -22,6 +22,12 @@ class Bracket:
         if bracketName == '':
             raise ValueError('Name entered cannot be blank!')
         self.bracketName = bracketName 
+        self.teams = []
+        self.matchups_round1 = []
+        self.winners_round1 = []
+        self.matchups_round2 = []
+        self.final_matchup = None
+
 
     def runBracket(self):
         """
@@ -35,22 +41,41 @@ class Bracket:
         team6 = Team("Team 6", 4)
         team7 = Team("Team 7", 7)
         team8 = Team("Team 8", 2)
-        match1 = Matchup("Match 1")
-        match1.runMatch(team1, team2)
-        match2 = Matchup("Match 2")
-        match2.runMatch(team3, team4)
-        match3 = Matchup("Match 3")
-        match3.runMatch(team5, team6)
-        match4 = Matchup("Match 4")
-        match4.runMatch(team7, team8)
-        match5 = Matchup("Match 5")
-        match5.runMatch(match1.getWinner(), match2.getWinner())
-        match6 = Matchup("Match 6")
-        match6.runMatch(match3.getWinner(), match4.getWinner())
-        match7 = Matchup("Match 7")
-        match7.runMatch(match5.getWinner(), match6.getWinner())
+        self.teams.extend([team1, team2, team3, team4, team5, team6, team7, team8])
 
-        print(match7.getWinner().getTeamName() + " won the bracket!")
+        matchups_round1 = [
+            ("Match 1", team1, team8),
+            ("Match 2", team4, team5),
+            ("Match 3", team3, team6),
+            ("Match 4", team2, team7)
+        ]
+        
+        # Simulate first round of matchups
+        for match_info in matchups_round1:
+            match_name, team1, team2 = match_info
+            match = Matchup(match_name)
+            match.runMatch(team1, team2)
+            self.matchups_round1.append(match)
+            self.winners_round1.append(match.getWinner())
+        
+        
+        matchups_round2 = [
+            ("Match 5", self.winners_round1[0], self.winners_round1[1]),
+            ("Match 6", self.winners_round1[2], self.winners_round1[3])
+        ]
+        
+        # Simulate second round of matchups
+        for match_info in matchups_round2:
+            match_name, team1, team2 = match_info
+            match = Matchup(match_name)
+            match.runMatch(team1, team2)
+            self.matchups_round2.append(match)
+        # Create final matchup
+        final_matchup = Matchup("Final Match")
+        final_matchup.runMatch(self.matchups_round2[0].getWinner(), self.matchups_round2[1].getWinner())
+        self.final_matchup = final_matchup
+
+        print(final_matchup.getWinner().getTeamName() + " won the bracket!")
 
     def getBracketName(self):
         """

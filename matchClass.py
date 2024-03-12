@@ -3,7 +3,7 @@ CIS 350 Project - Team Class
 Author: Lauren McGuirk
 Date: February 2024
 """
-import teamClass
+import teamClass as teamClass
 import random
 
 class Matchup:
@@ -43,6 +43,9 @@ class Matchup:
         secondScore = self.randomTeamScore(secondTeam)
 
         #adding to wins/losses of teams
+        while firstScore == secondScore:
+            firstScore = self.randomTeamScore(firstTeam)
+            secondScore = self.randomTeamScore(secondTeam)
         if firstScore > secondScore:
             print(firstTeam.getTeamName() + " won " + self.getMatchName())
             print("The final score was " + str(firstScore) + " to " + str(secondScore))
@@ -53,6 +56,10 @@ class Matchup:
             print("The final score was " + str(secondScore) + " to " + str(firstScore))
             self.setWinner(secondTeam)
             self.setLoser(firstTeam)
+        
+        
+            
+            
     
     def randomTeamScore(self, team):
         """
