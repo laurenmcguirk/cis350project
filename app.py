@@ -2,20 +2,16 @@ from flask import Flask, jsonify
 from bracketClass import Bracket
 
 
-# This file replaced main.py
-# This does the same thing as running the bracket, however, its just sending the data you see in the terminal into the backend API for the frontend to pull from
-
-# TODO: Add "Run Bracket" and "Clear Bracket" button
-# TODO: change final match in bracket to match the previous matches
-
+# This runs the bracket and sends data to the backend API for the frontend to pull from
 
 app = Flask(__name__)
 
-@app.route("/brackets")
+@app.route("/bracket")
 def brackets():
     bracket = Bracket("Bracket Tracker Tournament")
     bracket.runBracket()
     
+    # data consists of title, team names, winners, and losers ordered in rounds
     data = {
         "bracket_name": bracket.bracketName,
         "teams": [team.getTeamName() for team in bracket.teams],
