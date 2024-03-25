@@ -3,7 +3,7 @@ CIS 350 Project - Team Class
 Author: Lauren McGuirk
 Date: February 2024
 """
-import teamClass as teamClass
+import Team as Team
 import random
 
 class Matchup:
