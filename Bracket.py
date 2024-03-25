@@ -3,8 +3,8 @@ CIS 350 Project - Team Class
 Author: Lauren McGuirk
 Date: February 2024
 """
-from matchClass import Matchup
-from teamClass import Team
+from Match import Matchup
+from Team import Team
 
 class Bracket:
     """
