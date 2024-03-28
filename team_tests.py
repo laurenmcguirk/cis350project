@@ -25,7 +25,7 @@ class TestTeamClass(unittest.TestCase):
         with self.assertRaises(ValueError):
             team.setTeamName("")
 
-   def test_getSeed(self):
+    def test_getSeed(self):
         team = Team("TeamA", 1)
         self.assertEqual(team.getSeed(), 1)
 
